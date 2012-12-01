@@ -1,0 +1,6 @@
+# Emacs backup files
+*~
+\#*#
+
+# cfx run generate
+*.backup
