@@ -1,7 +1,12 @@
-self.port.on 'show', (arg) ->
-    picture = document.getElementById "picture"
-    #alert arg
-    self.port.emit 'init', picture
+picture = document.getElementById "picture"
 
-self.port.on 'init', (arg) ->
-    alert "in init"
+picture_on_mouse_up = (event) ->
+    self.port.emit 'picture-mouseup', event
+
+if picture.addEventListener
+    picture.addEventListener 'mouseup', picture_on_mouse_up
+#else if picture.attachEvent
+
+self.port.on 'show', (arg) ->
+    self.port.emit 'init'
+    return

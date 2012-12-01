@@ -13,15 +13,21 @@ show_panel = panels.Panel
 
 
 # init
-show_panel.on 'init', (image_element) ->
+show_panel.port.on 'init', (image_element) ->
     console.log "in init"
-    null
+    return
+
+# picture-mouseup
+show_panel.port.on 'picture-mouseup', (mouse_event) ->
+    console.log "in picture-mouseup"
+    console.log field for field in mouse_event
+    return
 
 # show
 show_panel.on 'show', () ->
     console.log "in show"
-    show_panel.port.emit "show", network.Request
-    null
+    show_panel.port.emit "show"
+    return
 
 
 addon_bar_button = widgets.Widget
