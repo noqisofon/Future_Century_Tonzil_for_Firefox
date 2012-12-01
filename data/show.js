@@ -5,3 +5,7 @@ self.port.on('show', function(arg) {
   picture = document.getElementById("picture");
   return self.port.emit('init', picture);
 });
+
+self.port.on('init', function(arg) {
+  return alert("in init");
+});

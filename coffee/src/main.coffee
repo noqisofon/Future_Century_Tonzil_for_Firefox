@@ -3,7 +3,7 @@ tabs = require 'tabs'
 self = require( 'self' )
 data = self.data
 panels = require( 'panel' )
-network = require( 'require' )
+network = require( 'request' )
 
 show_panel = panels.Panel
     width: 250
@@ -11,16 +11,21 @@ show_panel = panels.Panel
     contentURL: data.url( "show.html" )
     contentScriptFile: data.url( "show.js" )
 
-show_panel.on 'show', () ->
-    console.log "show"
-    show_panel.port.emit "show"
 
-show_panel.on 'init', () ->
-    console.log "init"
+# init
+show_panel.on 'init', (image_element) ->
+    console.log "in init"
+    null
+
+# show
+show_panel.on 'show', () ->
+    console.log "in show"
+    show_panel.port.emit "show", network.Request
+    null
+
 
 addon_bar_button = widgets.Widget
     id: "imgly-icon"
     label: "show image"
     contentURL: "http://img.ly/assets/favicon-a1b5a899dcd5f68a9feb9e80b4b63935.ico"
     panel: show_panel
-
