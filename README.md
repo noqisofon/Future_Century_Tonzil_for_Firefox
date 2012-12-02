@@ -1,4 +1,4 @@
-Future_Century_Tonzil_for_Firefox
+未来世紀とんじる for Firefox とは
 =================================
 
-Future_Century_Tonzil_for_Firefox
+未来世紀とんじる for Firefox は画像に特化してると思われる Firefox アドオンです。
