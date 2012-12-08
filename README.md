@@ -6,4 +6,11 @@
 
 未来世紀とんじる for Firefox のビルド
 --------------------------------------------------
+Coffee Script で書かれていたりするので、addon ディレクトリに移動して
+
+    cd ./addon
+
+make addon してください。
+
+    make addon
 
