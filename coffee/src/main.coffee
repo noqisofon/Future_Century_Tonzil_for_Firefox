@@ -5,33 +5,32 @@ data = self.data
 panels = require( 'panel' )
 network = require( 'request' )
 
+
 show_panel = panels.Panel
-    width: 250
+    width: 300
     height: 400
     contentURL: data.url( "show.html" )
     contentScriptFile: data.url( "show.js" )
 
 
-# init
-show_panel.port.on 'init', (image_element) ->
-    console.log "in init"
-    return
-
-# picture-mouseup
-show_panel.port.on 'picture-mouseup', (mouse_event) ->
-    console.log "in picture-mouseup"
-    console.log field for field in mouse_event
-    return
-
 # show
 show_panel.on 'show', () ->
     console.log "in show"
-    show_panel.port.emit "show"
+    show_panel.port.emit 'show',
+        short_id: "av5bde"
+        user_id: 6958082
+        source: "api"
+        width: 768
+        height: 1024
+        size: 153530
+        type: "jpg"
+        timestamp: "2012-09-16 07:25:10"
+        
     return
 
 
 addon_bar_button = widgets.Widget
-    id: "imgly-icon"
+    id: "twitpic-icon"
     label: "show image"
-    contentURL: "http://img.ly/assets/favicon-a1b5a899dcd5f68a9feb9e80b4b63935.ico"
+    contentURL: "http://twitpic.com/images/favicon.ico"
     panel: show_panel
